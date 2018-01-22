@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
 
   s.description      = 'This Pod will allow users to connect with MedCheck BLE Devices and read data from BLE. This SDK will return data.'
 
-  s.homepage         = 'https://github.com/smartfuturesg/MedCheckPod'
+  s.homepage         = 'https://github.com/smartfuturesg/MedCheckSDK_source_iOS'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'smartfuturesg' => 'pratik.patel@letsnurture.com' }
-  s.source           = { :git => 'https://github.com/smartfuturesg/MedCheckPod.git', :tag => s.version.to_s }
+  s.author           = { 'Sumit Khemani' => 'sumit@oursmartfuture.com' }
+  s.source           = { :git => 'https://github.com/smartfuturesg/MedCheckSDK_source_iOS.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
