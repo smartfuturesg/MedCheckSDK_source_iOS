@@ -1,0 +1,16 @@
+PODS:
+  - MedCheckPod (0.1.0)
+
+DEPENDENCIES:
+  - MedCheckPod (from `../`)
+
+EXTERNAL SOURCES:
+  MedCheckPod:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MedCheckPod: 22e387d7eba2afa3860d474572188b598ce7b629
+
+PODFILE CHECKSUM: 3b80f559c849d8bc1fbc7b25ed4a60bfa38882f7
+
+COCOAPODS: 1.3.1

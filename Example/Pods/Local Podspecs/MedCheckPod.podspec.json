@@ -1,0 +1,22 @@
+{
+  "name": "MedCheckPod",
+  "version": "0.1.0",
+  "summary": "A short description of MedCheckPod.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/smartfuturesg/MedCheckPod",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "smartfuturesg": "pratik.patel@letsnurture.com"
+  },
+  "source": {
+    "git": "https://github.com/smartfuturesg/MedCheckPod.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MedCheckPod/Classes/**/*"
+}

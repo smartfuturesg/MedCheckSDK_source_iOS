@@ -1,0 +1,6 @@
+framework module MedCheckPod {
+  umbrella header "MedCheckPod-umbrella.h"
+
+  export *
+  module * { export * }
+}
