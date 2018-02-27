@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MedCheckPod'
-  s.version          = '1.0.0'
+  s.version          = '1.0.2'
   s.summary          = 'This Pod will allow users to connect with MedCheck BLE Devices and read data from BLE.'
 
 # This description is used to generate tags and improve search results.

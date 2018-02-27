@@ -741,8 +741,10 @@ public class BPMDataManager: NSObject, MCBluetoothDelegate {
                 
                 let BYTE04 = binaryStr.substring(with: 8..<10) .hexaToDecimal
                 
-                let BYTE05 = binaryStr.substring(with: 10..<12) .hexaToDecimal
-                
+                var BYTE05 = binaryStr.substring(with: 10..<12) .hexaToDecimal
+                if BYTE04 != 0{
+                    BYTE05 = binaryStr.substring(with: 8..<12) .hexaToDecimal
+                }
                 let data = ["device":"Glucose", "data" : ["high_blood":  String(format: "%d",BYTE05), "Date" : dateStr+" "+timeStr, "Indicator" : BYTE03_BIT1]]  as [String : Any]
                 
                 self.bpmDataArray.append(data)
