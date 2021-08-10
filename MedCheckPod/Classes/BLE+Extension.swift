@@ -15,8 +15,8 @@ extension Data {
 }
 
 extension String {
-    var drop0xPrefix:          String { return hasPrefix("0x") ? String(characters.dropFirst(2)) : self }
-    var drop0bPrefix:          String { return hasPrefix("0b") ? String(characters.dropFirst(2)) : self }
+    var drop0xPrefix:          String { return hasPrefix("0x") ? String(dropFirst(2)) : self }
+    var drop0bPrefix:          String { return hasPrefix("0b") ? String(dropFirst(2)) : self }
     var hexaToDecimal:            Int { return Int(drop0xPrefix, radix: 16) ?? 0 }
     var hexaToBinaryString:    String { return String(hexaToDecimal, radix: 2) }
     var decimalToHexaString:   String { return String(Int(self) ?? 0, radix: 16) }
@@ -24,7 +24,7 @@ extension String {
     var binaryToDecimal:          Int { return Int(drop0bPrefix, radix: 2) ?? 0 }
     var binaryToHexaString:    String { return String(binaryToDecimal, radix: 16) }
     func pad(with character: String, toLength length: Int) -> String {
-        let padCount = length - self.characters.count
+        let padCount = length - self.count
         guard padCount > 0 else { return self }
         
         return String(repeating: character, count: padCount) + self
