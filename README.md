@@ -23,7 +23,7 @@ pod 'MedCheckPod'
 
 ### Pod Import
 <pre>
-    import BPTrackerPod
+    import MedCheckPod
 </pre>
 
 ### Get Shared Instance of BPMDataManager
