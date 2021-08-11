@@ -380,6 +380,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0.5;
 				MODULEMAP_FILE = "Target Support Files/MedCheckPod/MedCheckPod.modulemap";
 				PRODUCT_MODULE_NAME = MedCheckPod;
 				PRODUCT_NAME = MedCheckPod;
@@ -572,6 +573,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0.5;
 				MODULEMAP_FILE = "Target Support Files/MedCheckPod/MedCheckPod.modulemap";
 				PRODUCT_MODULE_NAME = MedCheckPod;
 				PRODUCT_NAME = MedCheckPod;
