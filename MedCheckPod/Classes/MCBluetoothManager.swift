@@ -13,11 +13,11 @@ import CoreBluetooth
     var _manager : CBCentralManager?
     var delegate : MCBluetoothDelegate?
     public var connected = false
-    var state: CBCentralManagerState? {
+    var state: CBManagerState? {
         guard _manager != nil else {
             return nil
         }
-        return CBCentralManagerState(rawValue: (_manager?.state.rawValue)!)
+        return CBManagerState(rawValue: (_manager?.state.rawValue)!)
     }
     private var timeoutMonitor : Timer? /// Timeout monitor of connect to peripheral
     private var interrogateMonitor : Timer? /// Timeout monitor of interrogate the peripheral
@@ -204,6 +204,8 @@ import CoreBluetooth
             print("State : Unknown")
         case .unsupported:
             print("State : Unsupported")
+        @unknown default:
+            print("State : default")
         }
         if let state = self.state {
             delegate?.didUpdateState?(state)
@@ -282,7 +284,7 @@ import CoreBluetooth
         print("Bluetooth Manager --> didDiscoverServices")
         connectedPeripheral = peripheral
         if error != nil {
-            print("Bluetooth Manager --> Discover Services Error, error:\(error?.localizedDescription)")
+            print("Bluetooth Manager --> Discover Services Error, error:\(String(describing: error?.localizedDescription))")
             return ;
         }
         
@@ -305,7 +307,7 @@ import CoreBluetooth
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         print("Bluetooth Manager --> didDiscoverCharacteristicsForService")
         if error != nil {
-            print("Bluetooth Manager --> Fail to discover characteristics! Error: \(error?.localizedDescription)")
+            print("Bluetooth Manager --> Fail to discover characteristics! Error: \(String(describing: error?.localizedDescription))")
             delegate?.didFailToDiscoverCharacteritics?(error!)
             return
         }
@@ -322,7 +324,7 @@ import CoreBluetooth
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
         print("Bluetooth Manager --> didDiscoverDescriptorsForCharacteristic")
         if error != nil {
-            print("Bluetooth Manager --> Fail to discover descriptor for characteristic Error:\(error?.localizedDescription)")
+            print("Bluetooth Manager --> Fail to discover descriptor for characteristic Error:\(String(describing: error?.localizedDescription))")
             delegate?.didFailToDiscoverDescriptors?(error!)
             return
         }

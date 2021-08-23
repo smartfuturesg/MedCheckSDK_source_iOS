@@ -199,7 +199,7 @@ public class BPMDataManager: NSObject, MCBluetoothDelegate {
      
      - parameter state: The bluetooth state
      */
-    @objc public func didUpdateState(_ state: CBCentralManagerState) {
+    @objc public func didUpdateState(_ state: CBManagerState) {
         print("MainController --> didUpdateState:\(state)")
         switch state {
         case .resetting:
@@ -223,6 +223,8 @@ public class BPMDataManager: NSObject, MCBluetoothDelegate {
             //            noBloothAlert("MedCheck", message: "Your device is not supporting Bluetooth.")
             bluetoothManager.stopScanPeripheral()
             bluetoothManager.disconnectPeripheral()
+        @unknown default:
+            print("MainController --> State : default")
         }
     }
     
@@ -301,7 +303,7 @@ public class BPMDataManager: NSObject, MCBluetoothDelegate {
         bluetoothManager.delegate = self
         connectedPeripheral = peripheral
         bluetoothManager.connectPeripheral(connectedPeripheral!)
-        print("connectedPeripheral: \(connectedPeripheral)")
+        print("connectedPeripheral: \(String(describing: connectedPeripheral))")
         bluetoothManager.stopScanPeripheral()
     }
     
@@ -325,9 +327,12 @@ public class BPMDataManager: NSObject, MCBluetoothDelegate {
      */
     public func didDiscoverServices(_ peripheral: CBPeripheral) {
         services = peripheral.services
-        for service in peripheral.services as [CBService]!{
-            peripheral.discoverCharacteristics(nil, for: service)
+        if let services = peripheral.services{
+            for service in services{
+                peripheral.discoverCharacteristics(nil, for: service)
+            }
         }
+        
     }
     
     /**
@@ -609,7 +614,7 @@ public class BPMDataManager: NSObject, MCBluetoothDelegate {
             }
         }
         else{
-            if binaryData.characters.count == 64 && recordCounter < getUserRecordIndex().0{
+            if binaryData.count == 64 && recordCounter < getUserRecordIndex().0{
                 let BYTE00 = binaryData.substring(with: 0..<8)
                 let BYTE0_BIT1 = BYTE00.substring(with: 4..<8).binaryToDecimal // month
                 let BYTE0_BIT2 = BYTE00.substring(with: 0..<4).binaryToHexaString //year
@@ -760,7 +765,7 @@ public class BPMDataManager: NSObject, MCBluetoothDelegate {
      This will prind BGM9CMD data.
      */
     func BGMBT9CommandRead(){
-        print("BGM9CMD \(BGM9CMD)")
+        print("BGM9CMD \(String(describing: BGM9CMD))")
     }
     
     /**
