@@ -63,7 +63,9 @@ import CoreBluetooth
      The method provides for starting scan near by peripheral
      */
     public func startScanPeripheral() {
-        _manager?.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey:true])
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self._manager?.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey:true])
+        }
     }
     
     /**
