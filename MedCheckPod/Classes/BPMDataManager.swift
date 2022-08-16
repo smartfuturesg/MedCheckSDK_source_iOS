@@ -701,8 +701,8 @@ public class BPMDataManager: NSObject, MCBluetoothDelegate {
         else{
             self.initialYear = Int(buffer[1])
             let user = String(buffer[0], radix: 16)
-            let start = String(buffer[2], radix: 16)
-            let end = String(buffer[3], radix: 16)
+            let start = "\(buffer[2])"//String(buffer[2], radix: 16)
+            let end = "\(buffer[3])"//String(buffer[3], radix: 16)
             let typeBinary = String(buffer[7], radix: 16).hexaToBinaryString
             let type = typeBinary.substring(with: 7..<8)
             
